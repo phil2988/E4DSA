@@ -111,8 +111,8 @@ fs = 20000; % sampling frequency
 
 other_signal = FSKgenerator('hello', fstart, fend, tsymbol, fs);
 
-% pause(5)
-% sound(other_signal, fs)
+pause(5)
+sound(other_signal, fs)
 
 % part 2.1
 [signal_recorded, fs_recorded] = audioread("Close.mp4");
@@ -137,47 +137,14 @@ X_matlab = fft(x)
 %% TASK 3
 % part 1
 
-signal_decoded_N = length(signal_recorded)/5;
+signal_decoded_N = length(signal_decoded)/5;
 
-signal_decoded_character_h = signal_recorded(1:round(signal_decoded_N));
+signal_decoded_character_h = signal_decoded(1:round((signal_decoded_N)));
 
-signal_decoded_character_h_SND_db_close = ...
+signal_decoded_character_h_SND_db = ...
     max(20.*log10(abs(fft(signal_decoded_character_h)))) - ...
     median(20.*log10(abs(fft(signal_decoded_character_h)))) - ...
-    10.*log10(signal_decoded_N/2);
-
-signal_decoded_character_h_SND_db_close
-
-% part 2
-[signal_recorded, fs_recorded] = audioread("Far.mp4");
-
-start_seconds = 5.65;
-length_seconds = 2.5;
-
-signal_recorded = signal_recorded(fs_recorded * start_seconds:fs_recorded * (start_seconds + length_seconds));
-
-signal_decoded_N = length(signal_recorded)/5;
-
-signal_decoded_character_h = signal_recorded(1:round(signal_decoded_N));
-
-signal_decoded_character_h_SND_db_far = ...
-    max(20.*log10(abs(fft(signal_decoded_character_h)))) - ...
-    median(20.*log10(abs(fft(signal_decoded_character_h)))) - ...
-    10.*log10(signal_decoded_N/2);
-
-signal_decoded_character_h_SND_db_far
-
-% part 3
-
-data = [10 signal_decoded_character_h_SND_db_close, 100 signal_decoded_character_h_SND_db_far]
-
-f11 = figure;
-hold on
-plot( [10, 100], [signal_decoded_character_h_SND_db_close, signal_decoded_character_h_SND_db_far])
-title("Signal to Noise ratio compared to distance recorded from speaker", 'FontSize', 30)
-ylabel("SNR (db)", 'FontSize', 20)
-xlabel("Distance (cm)", 'FontSize', 20)
-ylim([40, 60])
+    10 * log10
 
 %% FUNCTIONS
 % part 2.1
