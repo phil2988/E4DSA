@@ -1,0 +1,4 @@
+-iC:/Users/thoma/Desktop/GitRepo/DSA/Case3_AudioNotchFilter_CrossCore2100/AudioNotchFilter/system
+-iC:/Analog Devices/ADSP-BF706_EZ-KIT_Mini-Rel1.1.0/BF706_EZ-Kit_MINI/Blackfin/include
+-iC:/Analog Devices/ADSP-BF706_EZ-KIT_Mini-Rel1.1.0/BF706_EZ-Kit_MINI/Blackfin/include/drivers/codec/adau1761
+-iC:/Users/thoma/Desktop/GitRepo/DSA/Case3_AudioNotchFilter_CrossCore2100/AudioNotchFilter/SigmaStudio/export
